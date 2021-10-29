@@ -124,6 +124,7 @@ class UI:
         helpMenu = Menu(barraMenu, tearoff = 0)
         helpMenu.add_command(label = 'About', command = showAbout)
 
+        # menu for change the cards's color
         backgroundsMenu = Menu(barraMenu, tearoff = 0)
         backgroundsMenu.add_command(label = 'Red', command = lambda : changeToRed(self.cards))
         backgroundsMenu.add_command(label = 'Blue', command = lambda : changeToBlue(self.cards))
