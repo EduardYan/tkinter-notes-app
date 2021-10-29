@@ -18,21 +18,6 @@ class UI:
         self.wind.title('Add Notes App.')
         self.wind.resizable(False, False)
 
-        # ------------- MENUS ----------------------
-        barraMenu = Menu(self.wind)
-
-        noteMenu = Menu(barraMenu, tearoff = 0)
-        noteMenu.add_command(label = 'Add', command = self.addNote)
-        noteMenu.add_command(label = 'Exit', command = self.wind.destroy)
-        # noteMenu.add_command(label = 'Change Color')
-
-        helpMenu = Menu(barraMenu, tearoff = 0)
-        helpMenu.add_command(label = 'About', command = showAbout)
-
-        barraMenu.add_cascade(menu = noteMenu, label = 'Note')
-        barraMenu.add_cascade(menu = helpMenu, label = 'Help')
-
-        self.wind.config(menu = barraMenu)
 
         # frame conteiner
         frame = Frame(self.wind, height = 600, width = 1200)
@@ -54,7 +39,7 @@ class UI:
         saveButton.grid(row = 3, column = 0, sticky = 'nesw', pady = 5, padx = 5)
 
         exitButton = Button(frame, text = 'Exit', background = 'red')
-        exitButton['command'] = lambda : self.wind.destroy()
+        exitButton['command'] = self.wind.destroy
         exitButton.grid(row = 4, column = 0, sticky = 'nesw', pady = 5, padx = 5)
 
         # Second Frame
@@ -110,7 +95,6 @@ class UI:
         self.note16 = Label(frame2, text = '', width = 20, height = 5)
         self.note16.grid(row = 3, column = 3, sticky = 'nesw', pady = 5, padx = 5)
 
-        # cards for show the content of the note
         self.cards = [
             self.note1,
             self.note2,
@@ -130,16 +114,30 @@ class UI:
             self.note16
         ]
 
-        Label(frame, text = 'Change the Color.').grid(row = 5, column = 0, sticky = 'nesw', pady = 5, padx = 5 )
-        # Buttons for change the color of the cards
-        changeRed = Button(frame, text = 'Red', command = lambda : changeToRed(self.cards))
-        changeRed.grid(row = 6, column = 0, padx = 5, pady = 5, sticky = 'nesw')
-        changeBlue = Button(frame, text = 'Blue', command = lambda : changeToBlue(self.cards))
-        changeBlue.grid(row = 6, column = 1, padx = 5, pady = 5, sticky = 'nesw')
-        changeGreen = Button(frame, text = 'Green', command = lambda : changeToGreen(self.cards))
-        changeGreen.grid(row = 6, column = 2, pady = 5, padx = 5, sticky = 'news')
-        changeOrange = Button(frame, text = 'Oranje', command = lambda : changeToOrange(self.cards))
-        changeOrange.grid(row = 6, column = 3, pady = 5, padx = 5, sticky = 'news')
+        # ------------- MENUS ----------------------
+        barraMenu = Menu(self.wind)
+
+        noteMenu = Menu(barraMenu, tearoff = 0)
+        noteMenu.add_command(label = 'Add', command = self.addNote)
+        noteMenu.add_command(label = 'Exit', command = self.wind.destroy)
+
+        helpMenu = Menu(barraMenu, tearoff = 0)
+        helpMenu.add_command(label = 'About', command = showAbout)
+
+        backgroundsMenu = Menu(barraMenu, tearoff = 0)
+        backgroundsMenu.add_command(label = 'Red', command = lambda : changeToRed(self.cards))
+        backgroundsMenu.add_command(label = 'Blue', command = lambda : changeToBlue(self.cards))
+        backgroundsMenu.add_command(label = 'Yellow', command = lambda : changeToYellow(self.cards))
+        backgroundsMenu.add_command(label = 'Orange', command = lambda : changeToOrange(self.cards))
+        backgroundsMenu.add_command(label = 'Green', command = lambda : changeToGreen(self.cards))
+
+        barraMenu.add_cascade(menu = noteMenu, label = 'Note')
+        barraMenu.add_cascade(menu = backgroundsMenu, label = 'Backgrounds')
+        barraMenu.add_cascade(menu = helpMenu, label = 'Help')
+
+        # esto tambien se puede hacer asi
+        # self.wind.config(menu = barraMenu)
+        self.wind['menu'] = barraMenu # es un poco menos verbosa jaja
 
         # variable for know if the notes view is full
         self.full = 0
