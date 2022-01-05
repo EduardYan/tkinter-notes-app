@@ -5,7 +5,7 @@ __This is a small application for add notes, simple and fast. Made with python-t
 ## Docker Installation.
 
 ```bash
-docker run -it eduarddan/notes-app
+docker run -it eduarddan/tkinter-notes-app
 ```
 
 ## Manual
@@ -16,7 +16,7 @@ __This project depend of tkinter !!__
 git clone https://github.com/EduardYan/tkinter-notes-app.git
 cd tkinter-notes-app
 python3 main.py
-``
+```
 
 ## Screenshot.
 ![screenshot](./doc/screenshot.png)
