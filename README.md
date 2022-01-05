@@ -10,7 +10,23 @@ docker run -it eduarddan/tkinter-notes-app
 
 ## Manual
 
-__This project depend of tkinter !!__
+__This project depend of tkinter !!, install executing:__
+
+### Debian or Ubuntu GNU/Linux
+
+```bash
+sudo apt install python3-tk
+```
+
+### Windows
+
+```bash
+pip install python-tk
+```
+
+Referencies for install in Windows [https://stackoverflow.com/questions/20044559/how-to-pip-or-easy-install-tkinter-on-windows](https://stackoverflow.com/questions/20044559/how-to-pip-or-easy-install-tkinter-on-windows)
+
+## Then
 
 ```bash
 git clone https://github.com/EduardYan/tkinter-notes-app.git
