@@ -2,13 +2,8 @@
 
 __This is a small application for add notes, simple and fast. Made with python-tkinter, and sqlite for save the notes.__
 
-## Docker Installation.
 
-```bash
-docker run -it eduarddan/tkinter-notes-app
-```
-
-## Manual
+## Installation
 
 __This project depend of tkinter !!, install executing:__
 
