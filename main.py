@@ -7,6 +7,7 @@ from models.window import Window
 from ui import UI
 
 if __name__ == '__main__':
+    # executing
     wind = Window().getWind()
 
     UI(wind)
